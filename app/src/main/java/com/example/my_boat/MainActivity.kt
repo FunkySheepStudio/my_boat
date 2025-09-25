@@ -74,6 +74,6 @@ class MainActivity : AppCompatActivity() {
                     call.respondText("Hello, world!")
                 }
             }
-        }.start(wait = true)
+        }.start(wait = false)
     }
 }
