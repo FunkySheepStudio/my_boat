@@ -1,13 +1,13 @@
-package com.example.my_boat.ui.home
+package com.example.my_boat.ui.friends
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class FriendsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Here is your friends"
     }
     val text: LiveData<String> = _text
 }

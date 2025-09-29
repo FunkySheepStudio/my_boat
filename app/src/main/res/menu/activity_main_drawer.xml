@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_boats"
-            android:icon="@drawable/ic_menu_sailing"
-            android:title="@string/menu_sailing" />
+            android:icon="@drawable/ic_menu_boats"
+            android:title="@string/menu_boats" />
         <item
             android:id="@+id/nav_maintenance"
             android:icon="@drawable/ic_menu_maintenance"
@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_menu_manoeuvres"
             android:title="@string/menu_manoeuvres" />
         <item
-            android:id="@+id/nav_crew"
+            android:id="@+id/nav_friends"
             android:icon="@drawable/ic_menu_friends"
             android:title="@string/menu_friends" />
     </group>
