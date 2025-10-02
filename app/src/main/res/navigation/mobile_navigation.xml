@@ -3,29 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_boats">
-
+    app:startDestination="@id/boatsFragment">
     <fragment
-        android:id="@+id/nav_boats"
-        android:name="com.example.my_boat.ui.boats.BoatsFragment"
-        android:label="@string/menu_boats"
-        tools:layout="@layout/fragment_boats" />
-
+        android:id="@+id/boatsFragment"
+        android:name="com.example.my_boat.ui.BoatsFragment"
+        android:label="fragment_boats"
+        tools:layout="@layout/fragment_boats" >
+        <action
+            android:id="@+id/action_boatsFragment_to_addBoatFragment"
+            app:destination="@id/addBoatFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_friends"
-        android:name="com.example.my_boat.ui.friends.FriendsFragment"
-        android:label="@string/menu_friends"
+        android:id="@+id/addBoatFragment"
+        android:name="com.example.my_boat.ui.AddBoatFragment"
+        android:label="fragment_add_boat"
+        tools:layout="@layout/fragment_add_boat" />
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="com.example.my_boat.ui.FriendsFragment"
+        android:label="fragment_friends"
         tools:layout="@layout/fragment_friends" />
-
     <fragment
-        android:id="@+id/nav_maintenance"
-        android:name="com.example.my_boat.ui.maintenance.MaintenanceFragment"
-        android:label="@string/menu_maintenance"
+        android:id="@+id/maneuversFragment"
+        android:name="com.example.my_boat.ui.ManeuversFragment"
+        android:label="fragment_maneuvers"
+        tools:layout="@layout/fragment_maneuvers" />
+    <fragment
+        android:id="@+id/maintenanceFragment"
+        android:name="com.example.my_boat.ui.MaintenanceFragment"
+        android:label="fragment_maintenance"
         tools:layout="@layout/fragment_maintenance" />
-
-    <fragment
-        android:id="@+id/nav_manoeuvres"
-        android:name="com.example.my_boat.ui.manoeuvres.ManoeuvresFragment"
-        android:label="@string/menu_manoeuvres"
-        tools:layout="@layout/fragment_manoeuvres" />
 </navigation>
