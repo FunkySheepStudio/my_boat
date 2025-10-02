@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //server = Server()
         CouchbaseLite.init(applicationContext)
-        database = Database()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -14,6 +14,7 @@ navigationFragmentKtx = "2.9.5"
 navigationUiKtx = "2.9.5"
 ktor = "3.3.0"
 couchbaseLiteAndroidKtx = "3.2.4"
+recyclerview = "1.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor"
 ktor-serialization-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 couchbase-lite-android-ktx = { group = "com.couchbase.lite", name = "couchbase-lite-android-ktx", version.ref = "couchbaseLiteAndroidKtx" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

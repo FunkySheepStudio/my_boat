@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.AddBoatFragment">
 
-    <TextView
+    <EditText
+        android:id="@+id/txtName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSaveBoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="15sp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_menu_save" />
 </FrameLayout>

@@ -1,14 +1,27 @@
 package com.example.my_boat
-import com.couchbase.lite.*
 import android.util.Log
+import com.couchbase.lite.*
+import kotlin.concurrent.Volatile
 
-class Database {
-    private var db : com.couchbase.lite.Database
+class Database private constructor(){
+    companion object {
+
+        @Volatile
+        private var instance: Database? = null
+
+        fun getInstance() =
+            instance ?: synchronized(this) {
+                instance ?: Database().also { instance = it }
+            }
+    }
+    public var db : com.couchbase.lite.Database
 
     init {
         this.db = this.createDb("db")
         this.createCollection("boats")
-        this.listCollections()
+        this.createCollection("friends")
+        this.createCollection("maintenances")
+        this.createCollection("maneuvers")
     }
 
     fun createDb(dbName: String): com.couchbase.lite.Database {
