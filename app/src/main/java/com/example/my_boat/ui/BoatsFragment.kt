@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Text
 import com.example.my_boat.databinding.FragmentBoatsBinding
 import androidx.navigation.findNavController
 import com.couchbase.lite.DataSource
@@ -44,8 +46,15 @@ class BoatsFragment : Fragment() {
 
         val token = query.addChangeListener { change ->
             change.results?.let { rs ->
-                rs.forEach {
-                    Log.w("com.example.my_boat", "results: $it")
+                binding.listBoats.setContent {
+                    LazyColumn {
+                        rs.forEach {
+                            val thisDocsProps = it.getDictionary(0)
+                            item {
+                                Text(text = thisDocsProps!!.getString("name")?:"")
+                            }
+                        }
+                    }
                 }
             }
         }
