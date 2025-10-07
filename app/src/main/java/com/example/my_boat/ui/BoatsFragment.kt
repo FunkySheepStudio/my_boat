@@ -10,9 +10,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import com.example.my_boat.databinding.FragmentBoatsBinding
 import androidx.navigation.findNavController
-import com.couchbase.lite.DataSource
-import com.couchbase.lite.QueryBuilder
-import com.couchbase.lite.SelectResult
 import com.example.my_boat.*
 import com.example.my_boat.data.MyBoatDatabase
 

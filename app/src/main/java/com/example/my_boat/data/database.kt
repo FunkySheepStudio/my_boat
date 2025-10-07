@@ -17,7 +17,7 @@ abstract class MyBoatDatabase: RoomDatabase() { // <- Add 'abstract' keyword and
 
     companion object {
         @Volatile
-        public var INSTANCE: MyBoatDatabase? = null
+        var INSTANCE: MyBoatDatabase? = null
 
         fun getDatabase(context: Context): MyBoatDatabase{
             val tempInstance = INSTANCE
