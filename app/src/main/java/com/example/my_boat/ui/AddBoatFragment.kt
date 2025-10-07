@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.my_boat.Database
 import com.example.my_boat.databinding.FragmentAddBoatBinding
-import com.couchbase.lite.*
-import java.util.Date
+import com.example.my_boat.data.Boat
+import com.example.my_boat.data.MyBoatDatabase
 
 class AddBoatFragment : Fragment() {
     private var _binding: FragmentAddBoatBinding? = null
@@ -28,14 +27,8 @@ class AddBoatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.fabSaveBoat.setOnClickListener {
-            val database = Database.getInstance()
-            val boats = database.db.getCollection("boats")
-            val boat = MutableDocument()
-            boat.let {
-                it.setString("name", binding.txtName.text.toString())
-                it.setDate("createdAt", Date())
-            }
-            boats?.save(boat)
+            val boat = Boat(name = binding.txtName.text.toString())
+            MyBoatDatabase.INSTANCE?.boatDao()?.insert(boat)
         }
     }
 }

@@ -14,6 +14,7 @@ import com.couchbase.lite.DataSource
 import com.couchbase.lite.QueryBuilder
 import com.couchbase.lite.SelectResult
 import com.example.my_boat.*
+import com.example.my_boat.data.MyBoatDatabase
 
 class BoatsFragment : Fragment() {
     private var _binding: FragmentBoatsBinding? = null
@@ -36,7 +37,19 @@ class BoatsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val database = Database.getInstance()
+        val boats = MyBoatDatabase.INSTANCE?.boatDao()?.getAll()
+
+        Log.w("com.example.my_boat","    Collection :: $boats")
+        binding.listBoats.setContent {
+            LazyColumn {
+                boats?.forEach {
+                    item {
+                        Text(text = it.name)
+                    }
+                }
+            }
+        }
+        /*val database = Database.getInstance()
         val boats = database.db.getCollection("boats")
             ?: throw IllegalStateException("collection not found")
 
@@ -57,7 +70,7 @@ class BoatsFragment : Fragment() {
                     }
                 }
             }
-        }
+        }*/
 
         binding.fabAddBoat.setOnClickListener {
             view.findNavController().navigate(R.id.addBoatFragment)

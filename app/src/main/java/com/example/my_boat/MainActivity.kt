@@ -10,9 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.runtime.Composable
-import com.couchbase.lite.CouchbaseLite
+import com.example.my_boat.data.MyBoatDatabase
 import com.example.my_boat.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,17 +18,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
-    //private lateinit var server: Server
-    private lateinit var database: Database
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //server = Server()
-        CouchbaseLite.init(applicationContext)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        MyBoatDatabase.getDatabase(applicationContext)
         setSupportActionBar(binding.appBarMain.toolbar)
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
